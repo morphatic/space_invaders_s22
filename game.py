@@ -3,16 +3,16 @@ Houses our Game class, which manages the behavior and data
 needed to run a Space Invaders game
 """
 
-import curses  # what is this for???
+import curses  # library to make console output better formatted
 import datetime as dt
-import sys  # what is this for???
+import sys  # for writing to stdout
 
 from datetime import datetime
 from fleet import Fleet
 from player import Player
 
 
-class Game(object):  # do we need to inherit from object?
+class Game:
     def __init__(self, stdscr):
         self.stdscr = stdscr  # gets the new game window
         self._initialize_colors()
