@@ -48,8 +48,7 @@ class Invader:
             self.y + y, self.x + x, " " * self.block_width, curses.color_pair(color)
         )
 
-    # def _move(self, tick_number):
-    def _move(self):
+    def _move(self, tick_number):
         # This is a kind of "brake" to ensure that the invaders don't move for every single game tick
         # (since we want to animate the player's motion quickly, but the invaders should move more slowly).
         if (
@@ -63,16 +62,9 @@ class Invader:
             self.x += x * self.speed * self.direction
             self.last_tick = datetime.now()
 
-    def update(self):
-        self._move()
+    def update(self, tick_number):
+        self._move(tick_number)
         self.draw()
 
-    def tick(self):
-        self.update()
-
-    # def update(self, tick_number):
-    #     self._move(tick_number)
-    #     self.draw()
-
-    # def tick(self, tick_number):
-    #     self.update(tick_number)
+    def tick(self, tick_number):
+        self.update(tick_number)
